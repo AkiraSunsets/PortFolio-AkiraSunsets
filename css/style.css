@@ -5,6 +5,12 @@
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; /* Oculta a barra horizontal */
+}
+
 body {
   background-color: #0d0f24;
   color: white;
@@ -49,6 +55,25 @@ header {
   100% {
     transform: translate(30px, 50px);
   }
+}
+
+.vector-global {
+  position: absolute; /* Eles ficam presos ao topo da página e descem conforme você rola */
+  z-index: 0; /* Ficam atrás do conteúdo (main), mas à frente do fundo (bg-overlay) */
+  pointer-events: none; /* Não atrapalham cliques em botões */
+  opacity: 0.4; /* Deixe mais suave para não cansar a vista durante o scroll */
+  width: 300px; /* Um pouco maiores para cobrir mais espaço */
+  filter: drop-shadow(0 0 15px rgba(129, 33, 208, 0.2)); /* Leve brilho roxo */
+}
+
+.vector-left {
+  top: 100%;
+  left: -100px;
+}
+
+.vector-right {
+  top: 25%;
+  right: -100px;
 }
 
 .navegacao-principal {
@@ -258,6 +283,8 @@ body.dark #theme-toggle .bi-moon-stars-fill {
 
 /*----------------------------- SEÇÃO ABOUT ME ---------------------------------------*/
 .home-page-about {
+  position: relative; /* Necessário para o z-index funcionar */
+  z-index: 10;
   padding: 100px 32px;
   max-width: 1200px;
   margin: 0 auto;
@@ -277,13 +304,13 @@ body.dark #theme-toggle .bi-moon-stars-fill {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .about-text-gradient {
   background: linear-gradient(135deg, #bf0c6d, #3a2dff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
 }
 
 .about-text p {
@@ -291,17 +318,157 @@ body.dark #theme-toggle .bi-moon-stars-fill {
   line-height: 1.6;
   color: #cbd5e1;
   margin-bottom: 1.5rem;
+  margin-left: 80px;
+  margin-right: 50px;
 }
 
 .about-visual::after {
-    content: "";
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(129, 33, 208, 0.2) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(129, 33, 208, 0.2) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
 }
 
+/*---------------------------- sessão skills ----------------------------------------*/
+.home-page-skills {
+  position: relative; /* Necessário para o z-index funcionar */
+  z-index: 10;
+  padding: 80px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex; /* Coloca Soft e Tech lado a lado */
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.container-skills {
+  flex: 1;
+  min-width: 250px;
+  margin-top: 135px;
+  margin-left: 20px;
+}
+.tech-skills {
+  flex: 1;
+  min-width: 300px;
+}
+
+.container-skills h2 {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+
+.skill-item {
+  margin-bottom: 25px;
+}
+
+.skill-item label {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #e2e8f0;
+}
+
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80%;
+  height: 12px; /* Barra um pouco mais espessa para destacar o neon */
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+  border-radius: 20px;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 20px;
+  transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1); /* Animação suave */
+}
+
+/* Cores Neon conforme seu protótipo */
+#comm::-webkit-progress-value {
+  background: #3a2dff;
+  box-shadow: 0 0 15px rgba(58, 45, 255, 0.6);
+}
+#team::-webkit-progress-value {
+  background: #a855f7;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+}
+#crit::-webkit-progress-value {
+  background: #00d2ff;
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+}
+
+.percentage {
+  font-weight: bold;
+  color: #94a3b8;
+  min-width: 45px;
+}
+
+.tech-skills h2 {
+  margin-bottom: 12px;
+  font-size: 32px;
+}
+
+.tech-skills p {
+  color: #94a3b8;
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.tech-box {
+  background-color: rgba(22, 8, 38, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s ease;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box; /* Garante que o padding não aumente o box */
+}
+
+.tech-box:hover {
+  transform: translateY(-8px) scale(1.05);
+  border-color: #ff1493;
+  background: rgba(22, 8, 38, 0.8);
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.25);
+}
+
+.tech-box img {
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(59, 59, 59, 0.1));
+  flex-shrink: 0;
+}
