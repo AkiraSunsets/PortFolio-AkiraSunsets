@@ -1,3 +1,4 @@
+/*reset e globais*/
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@
 html,
 body {
   max-width: 100%;
-  overflow-x: hidden; /* Oculta a barra horizontal */
+  overflow-x: hidden;
 }
 
 body {
@@ -18,17 +19,26 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+/*------------------ header e navegação*/
 header {
   background: linear-gradient(180deg, #0d0f24, #0a0c1a);
   width: 100%;
-  height: 90px;
+  height: 70px;
   display: flex;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45),
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05);
-
-  /*box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6), 0 0 12px rgba(59, 61, 255, 0.4);*/
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
 }
+
+main {
+  margin-top: 70px;
+}
+
 .bg-overlay {
   position: fixed;
   top: 0;
@@ -36,7 +46,8 @@ header {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at 20% 30%,
       rgba(129, 33, 208, 0.15) 0%,
       transparent 40%
@@ -257,7 +268,8 @@ body.dark #theme-toggle .bi-moon-stars-fill {
 }
 
 .button-secondary-intro {
-  background: linear-gradient(#0d1028, #080a1a) padding-box,
+  background:
+    linear-gradient(#0d1028, #080a1a) padding-box,
     linear-gradient(135deg, #da0067, #6919ab) border-box;
 
   border: 2px solid transparent;
@@ -520,25 +532,30 @@ progress::-webkit-progress-value {
 .projects-container {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
   position: relative;
+  width: 100%;
+  gap: 15px;
 }
 
 .projects-grid {
   display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: 30px; /* Espaçamento entre cards no desktop */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .projects-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  width: 325px;
+  border-radius: 20px;
+  flex: 0 0 calc(33.333% - 20px); /* Exibe 3 cards no desktop */
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .projects-card:hover {
@@ -554,6 +571,7 @@ progress::-webkit-progress-value {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  object-fit: cover;
 }
 
 .projects-banner img {
@@ -640,6 +658,8 @@ progress::-webkit-progress-value {
   align-items: center;
   justify-content: center;
   transform: 0.3s;
+  z-index: 10;
+  flex-shrink: 0;
 }
 
 .projects-carousel-button:hover {
@@ -683,7 +703,8 @@ progress::-webkit-progress-value {
   margin-bottom: 25px;
   border-radius: 16px;
 
-  background: linear-gradient(#0d0f24, #0d0f24) padding-box,
+  background:
+    linear-gradient(#0d0f24, #0d0f24) padding-box,
     linear-gradient(135deg, #da0067, #3a2dff) border-box;
   border: 2px solid transparent;
   transition: 0.3s ease;
@@ -709,7 +730,9 @@ progress::-webkit-progress-value {
   margin-bottom: 4px;
 }
 
-.card-info, .company, .card-info .school {
+.card-info,
+.company,
+.card-info .school {
   color: #cbd5e1;
   font-size: 16px;
   margin-bottom: 2px;
@@ -720,16 +743,15 @@ progress::-webkit-progress-value {
   font-size: 14px;
 }
 
-
 /*---------------------------------------------- contact --------------------------------------*/
-.home-page-contact{
+.home-page-contact {
   padding: 100px 32px;
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
 
-.contact-wrapper{
+.contact-wrapper {
   display: flex;
   justify-content: space-between;
   gap: 60px;
@@ -737,8 +759,8 @@ progress::-webkit-progress-value {
   flex-wrap: wrap;
 }
 
-.contacts-info{
-    flex: 1;
+.contacts-info {
+  flex: 1;
   min-width: 320px;
 }
 
@@ -747,7 +769,8 @@ progress::-webkit-progress-value {
   min-width: 320px;
 }
 
-.contact-info h2, .contact-form-container h2 {
+.contact-info h2,
+.contact-form-container h2 {
   font-size: 32px;
   margin-bottom: 20px;
 }
@@ -773,7 +796,7 @@ progress::-webkit-progress-value {
 .icon-circle {
   width: 55px;
   height: 55px;
-  background-color: rgba(218, 0 , 183, 0.1);
+  background-color: rgba(218, 0, 183, 0.1);
   border: 1px solid rgba(218, 0, 103, 0.3);
   border-radius: 30px;
   display: flex;
@@ -798,12 +821,12 @@ progress::-webkit-progress-value {
 
 .glass-effect {
   background: rgba(255, 255, 255, 0.03); /* Transparência */
-    backdrop-filter: blur(10px); /* Desfoque de fundo */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 50px;
-    width: 100%;
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px); /* Desfoque de fundo */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 50px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
@@ -811,52 +834,366 @@ progress::-webkit-progress-value {
   margin-bottom: 30px;
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 20px;
-    color: white;
-    font-size: 16px;
-    transition: all 0.3s ease;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
-.form-group input:focus, 
+.form-group input:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: #3a2dff;
-    background: rgba(58, 45, 255, 0.05);
-    box-shadow: 0 0 15px rgba(58, 45, 255, 0.4);
+  outline: none;
+  border-color: #3a2dff;
+  background: rgba(58, 45, 255, 0.05);
+  box-shadow: 0 0 15px rgba(58, 45, 255, 0.4);
 }
 
 /* Labels Flutuantes Modernas */
 .form-group label {
-    position: absolute;
-    left: 18px;
-    top: 18px;
-    color: #94a3b8;
-    pointer-events: none;
-    transition: 0.3s ease all;
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  color: #94a3b8;
+  pointer-events: none;
+  transition: 0.3s ease all;
 }
 
 .form-group input:focus ~ label,
 .form-group input:not(:placeholder-shown) ~ label,
 .form-group textarea:focus ~ label,
 .form-group textarea:not(:placeholder-shown) ~ label {
-    top: -25px;
-    left: 5px;
-    font-size: 14px;
-    color: #ff1493;
+  top: -25px;
+  left: 5px;
+  font-size: 14px;
+  color: #ff1493;
 }
 
 /* Ajuste do Botão de Envio */
 .contact-form .button-primary-intro {
-    width: 100%;
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
-    font-size: 18px;
+  width: 100%;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
 }
 
+/* --------------------------------------------- Footer ----------------------------------------------*/
+
+.footer-section {
+  background-color: #1a1033;
+  padding: 40px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(129, 33, 208, 0.5);
+}
+
+.footer-content p {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+
+.footer-content strong {
+  color: #ff1493;
+}
+
+.footer-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-social-links a {
+  color: white;
+  font-size: 32px;
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social-links a:hover {
+  color: #ff1493;
+  transform: translateY(-5px);
+  filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.5));
+}
+
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+#play-music {
+  background: rgba(255, 20, 147, 0.2);
+  border: 1px solid #ff1493;
+  color: #ff1493;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ------------------------------------------ responsividade ------------------------------------------------ */
+/* --- AJUSTES GLOBAIS DE SEÇÃO --- */
+.home-page-skills,
+.home-page-projects,
+.home-page-experience,
+.home-page-contact {
+  position: relative;
+  padding: 80px 32px;
+  margin-top: 0 !important; /* Garante que nenhuma seção "invada" a outra */
+}
+
+/* --- MENU MOBILE (BOTÃO) --- */
+.menu-mobile-btn {
+  display: none; /* Escondido no desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* --- TABLETS (1024px) --- */
+@media (max-width: 1024px) {
+  .home-page-intro {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 30px;
+    padding: 140px 20px 60px;
+  }
+
+  .home-page-intro h1 {
+    font-size: 48px;
+  }
+
+  .container-about {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .about-text p {
+    margin: 0 0 1.5rem 0;
+  }
+
+  .container-skills {
+    margin-left: 0;
+  }
+
+  .vector-global {
+    width: 180px;
+    opacity: 0.2; /* Suaviza vetores no tablet */
+  }
+}
+
+/* --- CELULARES (768px) --- */
+@media (max-width: 768px) {
+  /* Header Harmonizado */
+  header {
+    height: 60px;
+  }
+
+  .navegacao-principal {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-portfolio {
+    font-size: 20px;
+    order: 1; /* Logo na esquerda */
+  }
+
+  .menu-mobile-btn {
+    display: block;
+    order: 2; /* Hambúrguer na direita */
+  }
+
+  /* Menu Lateral (Drawer) */
+  .menu-de-navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    height: 100vh;
+    background: rgba(13, 15, 36, 0.98);
+    backdrop-filter: blur(15px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: 0.4s ease-in-out;
+    z-index: 1000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .menu-de-navegacao.active {
+    right: 0;
+  }
+
+  #theme-toggle {
+    display: none;
+  } /* Limpa o header mobile */
+
+  /* Intro e Seções */
+  .home-page-intro h1 {
+    font-size: 36px;
+  }
+  .home-page-intro figure {
+    width: 250px;
+    height: 250px;
+  }
+
+  .intro-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-primary-intro,
+  .button-secondary-intro {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Projetos - Modo 1 Card por vez */
+  /* --- CELULARES (768px) --- */
+  @media (max-width: 768px) {
+    /* Adiciona espaço nas laterais para as setas não ficarem em cima do card */
+    .projects-container {
+      padding: 0 45px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .projects-grid {
+      gap: 15px; /* Pequeno espaço entre os cards invisíveis */
+      overflow-x: hidden;
+    }
+
+    .projects-card {
+      /* Ajusta o card para ser um pouco menor que a largura total visível */
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    /* Posicionamento fixo das setas nas extremidades do padding */
+    .projects-carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      background-color: rgba(
+        13,
+        15,
+        36,
+        0.8
+      ); /* Fundo semi-transparente para destaque */
+    }
+
+    .projects-carousel-button.left {
+      left: 5px;
+    }
+
+    .projects-carousel-button.right {
+      right: 5px;
+    }
+  }
+
+  /* Experience, Skills e Contact */
+  .experience-education-wrapper,
+  .contact-wrapper,
+  .home-page-skills {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .contacts-info,
+  .contact-form-container {
+    width: 100%;
+  }
+
+  /* Vetores Mobile */
+  .vector-left {
+    display: none;
+  }
+  .vector-right {
+    top: 10%;
+    right: -60px;
+    width: 120px;
+  }
+}
+
+/* --- CELULARES PEQUENOS (480px) --- */
+@media (max-width: 480px) {
+  .home-page-intro h1 {
+    font-size: 32px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vector-global {
+    display: none;
+  } /* Remove vetores para limpar a tela pequena */
+}
+
+@media (max-width: 768px) {
+  /* ... outros estilos mobile ... */
+
+  .skills-grid {
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); /* Aumenta para 4 colunas para os ícones ficarem menores */
+    gap: 12px; /* Reduz o espaçamento entre os boxes */
+  }
+
+  .tech-box {
+    border-radius: 12px; /* Arredondamento menor para combinar com o tamanho */
+    padding: 10px;
+  }
+
+  .tech-box img {
+    max-width: 35px; /* Diminui o ícone interno (era 50px) */
+    max-height: 35px;
+  }
+}
+
+/* Para celulares muito pequenos (480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* Mantém 4 colunas */
+    gap: 8px;
+  }
+
+  .tech-box img {
+    max-width: 28px; /* Ícones ainda menores para telas minúsculas */
+    max-height: 28px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  header {
+    height: 60px;
+  }
+  main {
+    margin-top: 10px;
+  }
+}
