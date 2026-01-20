@@ -34,9 +34,6 @@
                 </strong>
             </div>
 
-            <button class="menu-mobile-btn" aria-label="Abrir menu">
-                <i class="bi bi-list"></i>
-            </button>
 
             <!--menu de navegação-->
             <ul class="menu-de-navegacao">
@@ -48,11 +45,19 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
-            <!--botão de alteração de tema-->
-            <button id="theme-toggle" title="Alternar tema visual" aria-label="Alternar Tema">
-                <i class="bi bi-sun-fill"></i>
-                <i class="bi bi-moon-stars-fill"></i>
+
+            <div class="header-actions">
+                <button id="play-music" title="Lofi Music"><i class="bi bi-music-note-beamed"></i></button>
+                <audio id="bg-audio" loop>
+                    <source src="assets/audio/lofi-relax.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+
+
+            <button class="menu-mobile-btn" aria-label="Abrir menu">
+                <i class="bi bi-list"></i>
             </button>
+
 
         </nav>
     </header>
@@ -180,85 +185,85 @@
             </div>
         </section>
 
-<section id="projects" class="home-page-projects">
-    <h2>My <span class="about-text-gradient">Projects</span></h2>
-    <p>Alguns projetos realizados por mim</p>
+        <section id="projects" class="home-page-projects">
+            <h2>My <span class="about-text-gradient">Projects</span></h2>
+            <p>Alguns projetos realizados por mim</p>
 
-    <div class="projects-container">
-        <button class="projects-carousel-button left" aria-label="Botão esquerdo">
-            <i class="bi bi-arrow-left"></i>
-        </button>
+            <div class="projects-container">
+                <button class="projects-carousel-button left" aria-label="Botão esquerdo">
+                    <i class="bi bi-arrow-left"></i>
+                </button>
 
-        <div class="projects-grid">
-            
-            <div class="projects-card">
-                <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
-                <div class="projects-info">
-                    <h3>PN Technical Analysis</h3>
-                    <p>Plataforma de filtragem e indicação de alternativas sustentáveis.</p>
-                    <div class="projects-tags">
-                        <span class="tag-project">React</span>
-                        <span class="tag-project">Tailwind</span>
+                <div class="projects-grid">
+
+                    <div class="projects-card">
+                        <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
+                        <div class="projects-info">
+                            <h3>PN Technical Analysis</h3>
+                            <p>Plataforma de filtragem e indicação de alternativas sustentáveis.</p>
+                            <div class="projects-tags">
+                                <span class="tag-project">React</span>
+                                <span class="tag-project">Tailwind</span>
+                            </div>
+                            <div class="projects-links">
+                                <a href="#" class="link-live">Live Demo</a>
+                                <a href="#" class="link-code">View Code</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="projects-links">
-                        <a href="#" class="link-live">Live Demo</a>
-                        <a href="#" class="link-code">View Code</a>
+
+                    <div class="projects-card">
+                        <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
+                        <div class="projects-info">
+                            <h3>Projeto Exemplo 2</h3>
+                            <p>Descrição do segundo projeto para testar o carrossel.</p>
+                            <div class="projects-tags">
+                                <span class="tag-project">JavaScript</span>
+                                <span class="tag-project">CSS</span>
+                            </div>
+                            <div class="projects-links">
+                                <a href="#" class="link-live">Live Demo</a>
+                                <a href="#" class="link-code">View Code</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="projects-card">
+                        <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
+                        <div class="projects-info">
+                            <h3>Projeto Exemplo 3</h3>
+                            <p>Descrição do terceiro projeto para testar o carrossel.</p>
+                            <div class="projects-tags">
+                                <span class="tag-project">HTML</span>
+                                <span class="tag-project">CSS</span>
+                            </div>
+                            <div class="projects-links">
+                                <a href="#" class="link-live">Live Demo</a>
+                                <a href="#" class="link-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projects-card">
+                        <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
+                        <div class="projects-info">
+                            <h3>Projeto Exemplo 4</h3>
+                            <p>Este card aparecerá ao clicar no botão da direita.</p>
+                            <div class="projects-tags">
+                                <span class="tag-project">Python</span>
+                            </div>
+                            <div class="projects-links">
+                                <a href="#" class="link-live">Live Demo</a>
+                                <a href="#" class="link-code">View Code</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <button class="projects-carousel-button right" aria-label="Botão direito">
+                    <i class="bi bi-arrow-right"></i>
+                </button>
             </div>
-
-            <div class="projects-card">
-                <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
-                <div class="projects-info">
-                    <h3>Projeto Exemplo 2</h3>
-                    <p>Descrição do segundo projeto para testar o carrossel.</p>
-                    <div class="projects-tags">
-                        <span class="tag-project">JavaScript</span>
-                        <span class="tag-project">CSS</span>
-                    </div>
-                    <div class="projects-links">
-                        <a href="#" class="link-live">Live Demo</a>
-                        <a href="#" class="link-code">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projects-card">
-                <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
-                <div class="projects-info">
-                    <h3>Projeto Exemplo 3</h3>
-                    <p>Descrição do terceiro projeto para testar o carrossel.</p>
-                    <div class="projects-tags">
-                        <span class="tag-project">HTML</span>
-                        <span class="tag-project">CSS</span>
-                    </div>
-                    <div class="projects-links">
-                        <a href="#" class="link-live">Live Demo</a>
-                        <a href="#" class="link-code">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projects-card">
-                <div class="projects-banner"><img src="../assets/img/hutao.jpg" alt="projeto image"></div>
-                <div class="projects-info">
-                    <h3>Projeto Exemplo 4</h3>
-                    <p>Este card aparecerá ao clicar no botão da direita.</p>
-                    <div class="projects-tags">
-                        <span class="tag-project">Python</span>
-                    </div>
-                    <div class="projects-links">
-                        <a href="#" class="link-live">Live Demo</a>
-                        <a href="#" class="link-code">View Code</a>
-                    </div>
-                </div>
-            </div>
-
-        </div> <button class="projects-carousel-button right" aria-label="Botão direito">
-            <i class="bi bi-arrow-right"></i>
-        </button>
-    </div>
-</section>
+        </section>
 
         <section id="experience" class="home-page-experience">
             <div class="experience-education-wrapper">
@@ -412,12 +417,6 @@
         </div>
     </footer>
 
-    <div class="music-player">
-        <button id="play-music" title="Lofi Music"><i class="bi bi-music-note-beamed"></i></button>
-        <audio id="bg-audio" loop>
-            <source src="assets/audio/lofi-relax.mp3" type="audio/mpeg">
-        </audio>
-    </div>
 
     <script src="../js/script.js"></script>
 </body>

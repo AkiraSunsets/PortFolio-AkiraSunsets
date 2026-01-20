@@ -71,3 +71,5 @@ menuMobileBtn.addEventListener("click", () => {
     icon.classList.replace("bi-x", "bi-list");
   }
 });
+
+
