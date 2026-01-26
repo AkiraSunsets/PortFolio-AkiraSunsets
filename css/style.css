@@ -533,6 +533,7 @@ progress::-webkit-progress-value {
   scroll-behavior: smooth;
   width: 100%;
   padding: 20px 0;
+  scroll-snap-type: mandatory;
 }
 
 .projects-card {
@@ -543,6 +544,7 @@ progress::-webkit-progress-value {
   flex: 0 0 calc(33.333% - 20px); /* Exibe 3 cards no desktop */
   overflow: hidden;
   transition: transform 0.3s ease;
+  scroll-snap-align: center;
 }
 
 .projects-card:hover {
