@@ -241,7 +241,7 @@ main {
   position: relative; /* Necessário para o z-index funcionar */
   z-index: 10;
   padding: 100px 32px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
 }
 
@@ -298,7 +298,7 @@ main {
   position: relative; /* Necessário para o z-index funcionar */
   z-index: 10;
   padding: 80px 32px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   display: flex; /* Coloca Soft e Tech lado a lado */
   justify-content: space-between;
@@ -455,10 +455,10 @@ progress::-webkit-progress-value {
 /*--------------------------------------- projects ------------------------------------------------*/
 .home-page-projects {
   padding: 100px 32px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   text-align: center;
-  margin-top: -20px;
+  margin-top: 20px;
 }
 
 .home-page-projects h2 {
@@ -478,7 +478,7 @@ progress::-webkit-progress-value {
   justify-content: center;
   position: relative;
   width: 100%;
-  gap: 15px;
+  gap: 40px;
 }
 
 .projects-header-row {
