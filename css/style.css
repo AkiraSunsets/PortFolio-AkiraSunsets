@@ -69,12 +69,12 @@ main {
 }
 
 .vector-global {
-  position: absolute; /* Eles ficam presos ao topo da página e descem conforme você rola */
-  z-index: 0; /* Ficam atrás do conteúdo (main), mas à frente do fundo (bg-overlay) */
-  pointer-events: none; /* Não atrapalham cliques em botões */
-  opacity: 0.4; /* Deixe mais suave para não cansar a vista durante o scroll */
-  width: 290px; /* Um pouco maiores para cobrir mais espaço */
-  filter: drop-shadow(0 0 15px rgba(129, 33, 208, 0.2)); /* Leve brilho roxo */
+  position: absolute; 
+  z-index: 0; 
+  pointer-events: none; 
+  opacity: 0.4; 
+  width: 290px; 
+  filter: drop-shadow(0 0 15px rgba(129, 33, 208, 0.2)); 
 }
 
 .vector-left {
@@ -89,7 +89,7 @@ main {
 
 .navegacao-principal {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1440px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,15 +141,15 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 50px;
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 32px;
+  padding: 55px;
 }
 
 .home-page-intro figure {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 450px;
+  height: 450px;
   border-radius: 50%;
   transition: transform 0.5s ease;
   border: 2px solid rgba(129, 33, 208, 0.5);
@@ -960,24 +960,18 @@ progress::-webkit-progress-value {
 /* --- AJUSTES PARA MOBILE (768px) --- */
 @media (max-width: 768px) {
   .header-actions {
-    /* Remove do fluxo do header e joga para o canto da tela */
     position: fixed;
     bottom: 20px;
-    right: 20px; /* Posicionado no canto inferior direito */
+    right: 20px;
     margin-left: 0;
-    z-index: 1100; /* Fica acima do menu lateral se necessário */
+    z-index: 1100;
   }
 
   #play-music {
-    background: rgba(
-      13,
-      15,
-      36,
-      0.9
-    ); /* Fundo sólido para destacar no mobile */
-    width: 50px; /* Um pouco maior no toque do celular */
+    background: rgba(13, 15, 36, 0.9); 
+    width: 50px; 
     height: 50px;
-    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4); /* Brilho neon no mobile */
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
   }
 }
 
@@ -1090,7 +1084,7 @@ progress::-webkit-progress-value {
 
   /* Intro e Seções */
   .home-page-intro h1 {
-    font-size: 36px;
+    font-size: 40px;
   }
   .home-page-intro figure {
     width: 250px;
@@ -1238,3 +1232,4 @@ progress::-webkit-progress-value {
     margin-top: 20px;
   }
 }
+
