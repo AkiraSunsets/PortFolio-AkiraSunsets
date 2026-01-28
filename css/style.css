@@ -19,7 +19,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/*------------------ header e navegação*/
+/*------------------ header e navegação ---------------------------*/
 header {
   background: linear-gradient(180deg, #0d0f24, #0a0c1a);
   width: 100%;
@@ -134,7 +134,7 @@ main {
   border-radius: 2px;
 }
 
-/*----------------------------------------------------------*/
+/*-------------------------- home --------------------------------*/
 .home-page-intro {
   min-height: 80vh;
   display: flex;
@@ -238,7 +238,7 @@ main {
 
 /*----------------------------- SEÇÃO ABOUT ME ---------------------------------------*/
 .home-page-about {
-  position: relative; /* Necessário para o z-index funcionar */
+  position: relative; 
   z-index: 10;
   padding: 100px 32px;
   max-width: 1500px;
@@ -295,12 +295,12 @@ main {
 
 /*---------------------------- sessão skills ----------------------------------------*/
 .home-page-skills {
-  position: relative; /* Necessário para o z-index funcionar */
+  position: relative;
   z-index: 10;
   padding: 80px 32px;
   max-width: 1500px;
   margin: 0 auto;
-  display: flex; /* Coloca Soft e Tech lado a lado */
+  display: flex; 
   justify-content: space-between;
   gap: 40px;
   flex-wrap: wrap;
@@ -351,20 +351,20 @@ progress {
   -webkit-appearance: none;
   appearance: none;
   width: 80%;
-  height: 12px; /* Barra um pouco mais espessa para destacar o neon */
+  height: 12px; 
 }
 
 progress::-webkit-progress-bar {
-  background-color: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+  background-color: rgba(255, 255, 255, 0.05); 
   border-radius: 20px;
 }
 
 progress::-webkit-progress-value {
   border-radius: 20px;
-  transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1); /* Animação suave */
+  transition: width 1.5s cubic-bezier(0.1, 0.42, 0.41, 1); 
 }
 
-/* Cores Neon Individuais */
+
 #comm::-webkit-progress-value {
   background: #3a2dff;
   box-shadow: 0 0 15px rgba(58, 45, 255, 0.6);
@@ -382,7 +382,7 @@ progress::-webkit-progress-value {
   box-shadow: 0 0 15px rgba(255, 20, 147, 0.6);
 }
 
-/* Suporte para Firefox (Obrigatório repetir a cor) */
+
 #comm::-moz-progress-bar {
   background: #3a2dff;
 }
@@ -432,7 +432,7 @@ progress::-webkit-progress-value {
   aspect-ratio: 1 / 1;
   position: relative;
   overflow: hidden;
-  box-sizing: border-box; /* Garante que o padding não aumente o box */
+  box-sizing: border-box;
 }
 
 .tech-box:hover {
@@ -530,7 +530,7 @@ progress::-webkit-progress-value {
 .projects-grid {
   display: flex;
   flex-wrap: nowrap;
-  gap: 30px; /* Espaçamento entre cards no desktop */
+  gap: 30px; 
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -544,7 +544,7 @@ progress::-webkit-progress-value {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
-  flex: 0 0 calc(33.333% - 20px); /* Exibe 3 cards no desktop */
+  flex: 0 0 calc(33.333% - 20px); 
   overflow: hidden;
   transition: transform 0.3s ease;
   scroll-snap-align: center;
@@ -662,8 +662,6 @@ progress::-webkit-progress-value {
 .link-live:hover {
   text-decoration: underline;
 }
-
-/* botões do carrossel*/
 
 .projects-carousel-button {
   background: transparent;
@@ -839,8 +837,8 @@ progress::-webkit-progress-value {
 }
 
 .glass-effect {
-  background: rgba(255, 255, 255, 0.03); /* Transparência */
-  backdrop-filter: blur(10px); /* Desfoque de fundo */
+  background: rgba(255, 255, 255, 0.03); 
+  backdrop-filter: blur(10px); 
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 50px;
   width: 100%;
@@ -873,7 +871,6 @@ progress::-webkit-progress-value {
   box-shadow: 0 0 15px rgba(58, 45, 255, 0.4);
 }
 
-/* Labels Flutuantes Modernas */
 .form-group label {
   position: absolute;
   left: 18px;
@@ -893,7 +890,6 @@ progress::-webkit-progress-value {
   color: #ff1493;
 }
 
-/* Ajuste do Botão de Envio */
 .contact-form .button-primary-intro {
   width: 100%;
   cursor: pointer;
@@ -943,7 +939,6 @@ progress::-webkit-progress-value {
   filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.5));
 }
 
-/* --- Estilo Base (Desktop) --- */
 .header-actions {
   display: flex;
   align-items: center;
@@ -1001,7 +996,6 @@ progress::-webkit-progress-value {
 }
 
 /* ------------------------------------------ responsividade ------------------------------------------------ */
-/* --- AJUSTES GLOBAIS DE SEÇÃO --- */
 .home-page-skills,
 .home-page-projects,
 .home-page-experience,
@@ -1057,7 +1051,6 @@ progress::-webkit-progress-value {
 
 /* --- CELULARES (768px) --- */
 @media (max-width: 768px) {
-  /* Header Harmonizado */
   header {
     height: 60px;
   }
@@ -1073,15 +1066,15 @@ progress::-webkit-progress-value {
 
   .logo-portfolio {
     font-size: 20px;
-    order: 1; /* Logo na esquerda */
+    order: 1;
   }
 
   .menu-mobile-btn {
     display: block;
-    order: 2; /* Hambúrguer na direita */
+    order: 2;
   }
 
-  /* Menu Lateral (Drawer) */
+  /* Menu Lateral */
   .menu-de-navegacao {
     position: fixed;
     top: 0;
@@ -1105,9 +1098,8 @@ progress::-webkit-progress-value {
 
   #theme-toggle {
     display: none;
-  } /* Limpa o header mobile */
+  } 
 
-  /* Intro e Seções */
   .home-page-intro h1 {
     font-size: 40px;
   }
@@ -1127,10 +1119,8 @@ progress::-webkit-progress-value {
     text-align: center;
   }
 
-  /* Projetos - Modo 1 Card por vez */
-  /* --- CELULARES (768px) --- */
   @media (max-width: 768px) {
-    /* Adiciona espaço nas laterais para as setas não ficarem em cima do card */
+
     .projects-container {
       padding: 0 45px;
       position: relative;
@@ -1139,28 +1129,21 @@ progress::-webkit-progress-value {
     }
 
     .projects-grid {
-      gap: 15px; /* Pequeno espaço entre os cards invisíveis */
+      gap: 15px; 
       overflow-x: hidden;
     }
 
     .projects-card {
-      /* Ajusta o card para ser um pouco menor que a largura total visível */
       flex: 0 0 100%;
       max-width: 100%;
     }
 
-    /* Posicionamento fixo das setas nas extremidades do padding */
     .projects-carousel-button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       z-index: 20;
-      background-color: rgba(
-        13,
-        15,
-        36,
-        0.8
-      ); /* Fundo semi-transparente para destaque */
+      background-color: rgba(13, 15, 36, 0.8); 
     }
 
     .projects-carousel-button.left {
@@ -1211,24 +1194,23 @@ progress::-webkit-progress-value {
   }
   .vector-global {
     display: none;
-  } /* Remove vetores para limpar a tela pequena */
+  } 
 }
 
 /* ------------------------------------------ MOBILE (Até 768px) ------------------------------------------------ */
 @media (max-width: 768px) {
   
-  /* --- Layout Geral --- */
+
   header {
-    height: 60px; /* Reduz altura do topo */
+    height: 60px; 
   }
 
   main {
-    margin-top: 20px; /* Menos espaço no topo para o conteúdo subir */
+    margin-top: 20px;
   }
 
-  /* --- Soft Skills: Centralização Total --- */
   .container-skills {
-    text-align: center; /* Centraliza títulos e descrições */
+    text-align: center; 
     margin-left: 0 !important;
     width: 100%;
   }
@@ -1236,34 +1218,32 @@ progress::-webkit-progress-value {
   .skill-item {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza o nome da skill sobre a barra */
+    align-items: center;
     margin-bottom: 25px;
   }
 
   .progress-wrapper {
-    justify-content: center; /* Centraliza a barra de progresso no meio da tela */
+    justify-content: center; 
     width: 100%;
-    max-width: 350px; /* Limita largura para não ficar esticado demais */
+    max-width: 350px; 
     margin: 0 auto;
   }
 
   progress {
-    width: 80%; /* Tamanho ideal para visualização mobile */
+    width: 80%;
   }
 
-  /* --- Technical Skills: Grid de Ícones --- */
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas para ícones menores */
-    gap: 12px; /* Espaço reduzido entre os itens */
-  }
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 12px; 
 
   .tech-box {
     border-radius: 12px;
-    padding: 10px; /* Box mais compacto */
+    padding: 10px; 
   }
 
   .tech-box img {
-    max-width: 35px; /* Diminui o tamanho do ícone interno */
+    max-width: 35px; 
     max-height: 35px;
   }
 }
@@ -1272,8 +1252,8 @@ progress::-webkit-progress-value {
 /* --- CELULARES MUITO PEQUENOS (Até 480px) --- */
 @media (max-width: 480px) {
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr); /* Mantém as 4 colunas */
-    gap: 8px; /* Espaçamento ainda menor para caber tudo */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 8px; 
   }
 
   .tech-box img {
@@ -1289,12 +1269,12 @@ progress::-webkit-progress-value {
 /* Para celulares muito pequenos (480px) */
 @media (max-width: 480px) {
   .skills-grid {
-    grid-template-columns: repeat(4, 1fr); /* Mantém 4 colunas */
+    grid-template-columns: repeat(4, 1fr);
     gap: 8px;
   }
 
   .tech-box img {
-    max-width: 28px; /* Ícones ainda menores para telas minúsculas */
+    max-width: 28px;
     max-height: 28px;
   }
 }
