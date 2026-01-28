@@ -1,75 +1,148 @@
-/* --- Carrossel de Projetos --- */
-const grid = document.querySelector(".projects-grid");
-const btnLeft = document.querySelector(".projects-carousel-button.left");
-const btnRight = document.querySelector(".projects-carousel-button.right");
+/* =========================================================
+   PORTFÓLIO - SCRIPT PRINCIPAL
+   Autor: Ketlyn Araújo
+   ========================================================= */
 
-btnRight.addEventListener("click", () => {
-  const card = document.querySelector(".projects-card");
-  const cardWidth = card.offsetWidth;
-  // Pega o gap real definido no CSS (15px no mobile)
-  const gap = parseInt(window.getComputedStyle(grid).gap) || 0;
-  
-  grid.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
+document.addEventListener("DOMContentLoaded", () => {
+  initMobileMenu();
+  initActiveMenuOnScroll();
+  initProjectsCarousel();
+  initProgressAnimation();
+  initMusicPlayer();
 });
 
-btnLeft.addEventListener("click", () => {
-  const card = document.querySelector(".projects-card");
-  const cardWidth = card.offsetWidth;
-  const gap = parseInt(window.getComputedStyle(grid).gap) || 0;
-  
-  grid.scrollBy({ left: -(cardWidth + gap), behavior: "smooth" });
-});
+/* =========================================================
+   MENU MOBILE (HAMBÚRGUER)
+   ========================================================= */
+function initMobileMenu() {
+  const menuBtn = document.querySelector(".menu-mobile-btn");
+  const navMenu = document.querySelector(".menu-de-navegacao");
+  const menuLinks = document.querySelectorAll(".menu-de-navegacao a");
 
-/* --- Formulário AJAX (Formspree) --- */
-const form = document.querySelector(".contact-form");
-const status = document.getElementById("form-status");
+  if (!menuBtn || !navMenu) return;
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  status.innerHTML = "Enviando...";
-
-  const response = await fetch(e.target.action, {
-    method: form.method,
-    body: data,
-    headers: { Accept: "application/json" },
+  menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    menuBtn.classList.toggle("active");
   });
 
-  if (response.ok) {
-    status.innerHTML = "✨ Mensagem enviada com sucesso!";
-    status.style.color = "#ff1493";
-    form.reset();
-  } else {
-    status.innerHTML = "❌ Ops! Algo deu errado.";
-    status.style.color = "red";
-  }
-});
+  // Fecha o menu ao clicar em um link
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+      menuBtn.classList.remove("active");
+    });
+  });
+}
 
-/* --- Controle de Música --- */
-const audio = document.getElementById("bg-audio");
-const musicBtn = document.getElementById("play-music");
+/* =========================================================
+   MENU ATIVO CONFORME SCROLL (SCROLL SPY)
+   ========================================================= */
+function initActiveMenuOnScroll() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".menu-de-navegacao a");
 
-musicBtn.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    musicBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
-  } else {
-    audio.pause();
-    musicBtn.innerHTML = '<i class="bi bi-music-note-beamed"></i>';
-  }
-});
-const menuMobileBtn = document.querySelector(".menu-mobile-btn");
-const menuNav = document.querySelector(".menu-de-navegacao");
+  if (!sections.length || !navLinks.length) return;
 
-menuMobileBtn.addEventListener("click", () => {
-  menuNav.classList.toggle("active");
-  // Troca o ícone para feedback visual
-  const icon = menuMobileBtn.querySelector("i");
-  if (menuNav.classList.contains("active")) {
-    icon.classList.replace("bi-list", "bi-x");
-  } else {
-    icon.classList.replace("bi-x", "bi-list");
-  }
-});
+  window.addEventListener("scroll", () => {
+    let currentSection = "";
 
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      if (pageYOffset >= sectionTop) {
+        currentSection = section.getAttribute("id");
+      }
+    });
 
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSection}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+}
+
+/* =========================================================
+   CARROSSEL DE PROJETOS
+   ========================================================= */
+function initProjectsCarousel() {
+  const container = document.querySelector(".projects-grid");
+  const btnLeft = document.querySelector(".projects-carousel-button.left");
+  const btnRight = document.querySelector(".projects-carousel-button.right");
+
+  if (!container || !btnLeft || !btnRight) return;
+
+  const scrollAmount = () => {
+    const card = container.querySelector(".projects-card");
+    return card ? card.offsetWidth + 30 : 300;
+  };
+
+  btnRight.addEventListener("click", () => {
+    container.scrollBy({
+      left: scrollAmount(),
+      behavior: "smooth",
+    });
+  });
+
+  btnLeft.addEventListener("click", () => {
+    container.scrollBy({
+      left: -scrollAmount(),
+      behavior: "smooth",
+    });
+  });
+}
+
+/* =========================================================
+   ANIMAÇÃO DAS BARRAS DE SKILLS
+   ========================================================= */
+function initProgressAnimation() {
+  const progresses = document.querySelectorAll("progress");
+
+  if (!progresses.length) return;
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progress = entry.target;
+          const value = progress.getAttribute("value");
+
+          progress.value = 0;
+          setTimeout(() => {
+            progress.value = value;
+          }, 200);
+
+          observer.unobserve(progress);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  progresses.forEach(progress => observer.observe(progress));
+}
+
+/* =========================================================
+   PLAYER DE MÚSICA (BOTÃO FLUTUANTE)
+   ========================================================= */
+function initMusicPlayer() {
+  const playBtn = document.getElementById("play-music");
+  if (!playBtn) return;
+
+  const audio = new Audio("assets/songs/lofisong.mp3");
+  audio.loop = true;
+
+  let isPlaying = false;
+
+  playBtn.addEventListener("click", () => {
+    if (isPlaying) {
+      audio.pause();
+      playBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+    } else {
+      audio.play();
+      playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+    }
+    isPlaying = !isPlaying;
+  });
+}

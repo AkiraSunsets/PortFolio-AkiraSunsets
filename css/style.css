@@ -179,8 +179,8 @@ main {
 .subtitle-intro {
   margin-top: 10px;
   font-weight: 500;
-  font-size: 1.5rem !important;
-  color: #e2e8f0 !important;
+  font-size: 24px !important;
+  color: #ffffff !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
   opacity: 1;
@@ -513,7 +513,8 @@ progress::-webkit-progress-value {
 }
 
 .role-badge {
-  display: inline-block;
+  display: inline-flex;
+  width: fit-content;
   font-size: 12px;
   font-weight: 700;
   color: #00d2ff;
@@ -523,6 +524,7 @@ progress::-webkit-progress-value {
   text-transform: uppercase;
   margin-bottom: 8px;
   letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .projects-grid {
@@ -531,9 +533,10 @@ progress::-webkit-progress-value {
   gap: 30px; /* Espaçamento entre cards no desktop */
   overflow-x: hidden;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
   padding: 20px 0;
-  scroll-snap-type: mandatory;
+  scroll-snap-type: x mandatory;
 }
 
 .projects-card {
@@ -545,6 +548,9 @@ progress::-webkit-progress-value {
   overflow: hidden;
   transition: transform 0.3s ease;
   scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .projects-card:hover {
@@ -555,23 +561,29 @@ progress::-webkit-progress-value {
 
 .projects-banner {
   background: rgba(255, 255, 255, 0.15);
-  height: 180px;
+  height: 200px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  object-fit: cover;
+  overflow: hidden;
 }
 
 .projects-banner img {
   max-width: 100%;
   max-height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .projects-info {
   padding: 25px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 380px;
 }
 
 .projects-info h3 {
@@ -599,7 +611,6 @@ progress::-webkit-progress-value {
   font-size: 15px;
   color: #94a3b8;
   line-height: 1.4;
-  height: 60px; /* Limita altura para alinhar os cards */
   margin-bottom: 15px;
   overflow: hidden;
 }
@@ -625,6 +636,8 @@ progress::-webkit-progress-value {
   justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
+  align-items: center;
+  margin-top: auto;
 }
 
 .projects-links a {
@@ -1201,25 +1214,75 @@ progress::-webkit-progress-value {
   } /* Remove vetores para limpar a tela pequena */
 }
 
+/* ------------------------------------------ MOBILE (Até 768px) ------------------------------------------------ */
 @media (max-width: 768px) {
-  /* ... outros estilos mobile ... */
+  
+  /* --- Layout Geral --- */
+  header {
+    height: 60px; /* Reduz altura do topo */
+  }
 
+  main {
+    margin-top: 20px; /* Menos espaço no topo para o conteúdo subir */
+  }
+
+  /* --- Soft Skills: Centralização Total --- */
+  .container-skills {
+    text-align: center; /* Centraliza títulos e descrições */
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o nome da skill sobre a barra */
+    margin-bottom: 25px;
+  }
+
+  .progress-wrapper {
+    justify-content: center; /* Centraliza a barra de progresso no meio da tela */
+    width: 100%;
+    max-width: 350px; /* Limita largura para não ficar esticado demais */
+    margin: 0 auto;
+  }
+
+  progress {
+    width: 80%; /* Tamanho ideal para visualização mobile */
+  }
+
+  /* --- Technical Skills: Grid de Ícones --- */
   .skills-grid {
-    grid-template-columns: repeat(
-      4,
-      1fr
-    ); /* Aumenta para 4 colunas para os ícones ficarem menores */
-    gap: 12px; /* Reduz o espaçamento entre os boxes */
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas para ícones menores */
+    gap: 12px; /* Espaço reduzido entre os itens */
   }
 
   .tech-box {
-    border-radius: 12px; /* Arredondamento menor para combinar com o tamanho */
-    padding: 10px;
+    border-radius: 12px;
+    padding: 10px; /* Box mais compacto */
   }
 
   .tech-box img {
-    max-width: 35px; /* Diminui o ícone interno (era 50px) */
+    max-width: 35px; /* Diminui o tamanho do ícone interno */
     max-height: 35px;
+  }
+}
+
+
+/* --- CELULARES MUITO PEQUENOS (Até 480px) --- */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* Mantém as 4 colunas */
+    gap: 8px; /* Espaçamento ainda menor para caber tudo */
+  }
+
+  .tech-box img {
+    max-width: 28px; /* Ícones minúsculos para telas pequenas */
+    max-height: 28px;
+  }
+
+  .home-page-intro h1 {
+    font-size: 32px; /* Título menor para não quebrar o layout */
   }
 }
 
