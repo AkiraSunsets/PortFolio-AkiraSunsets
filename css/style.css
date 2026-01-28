@@ -987,132 +987,260 @@ progress::-webkit-progress-value {
   z-index: 1001;
 }
 
-/* ------------------------------------------ Responsividade ------------------------------------------------ */
-
-/* --- NOTEBOOKS (Telas de 1025px até 1440px) --- */
-/* Foco: Ajustar o conteúdo para não ficar apertado em telas de 13 ou 14 polegadas */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .home-page-intro h1 {
-    font-size: 52px; /* Reduz um pouco para o título não ocupar a tela toda */
-  }
-
-  .home-page-intro figure {
-    width: 450px; /* Foto levemente menor que no monitor */
-    height: 450px;
-  }
-
-  .projects-card {
-    flex: 0 0 calc(33.333% - 20px); /* Mantém 3 cards, mas com menos respiro lateral */
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr); /* 4 ícones por linha para não ficarem minúsculos */
-  }
+/* ------------------------------------------ responsividade ------------------------------------------------ */
+/* --- AJUSTES GLOBAIS DE SEÇÃO --- */
+.home-page-skills,
+.home-page-projects,
+.home-page-experience,
+.home-page-contact {
+  position: relative;
+  padding: 80px 32px;
+  margin-top: 0 !important; /* Garante que nenhuma seção "invada" a outra */
 }
 
-/* --- MONITORES GRANDES (Acima de 1441px) --- */
-/* Foco: Impacto visual e uso total do espaço disponível */
-@media (min-width: 1441px) {
-  .home-page-intro h1 {
-    font-size: 75px; /* Título gigante e impactante */
-    letter-spacing: -2px;
-  }
-
-  .home-page-intro figure {
-    width: 500px; /* Foto grande para equilibrar com o título */
-    height: 500px;
-  }
-
-  .home-page-intro p {
-    font-size: 32px; /* Texto de apoio maior */
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(5, 1fr); /* 5 ícones por linha bem distribuídos */
-  }
+/* --- MENU MOBILE (BOTÃO) --- */
+.menu-mobile-btn {
+  display: none; /* Escondido no desktop */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 1001;
 }
 
-/* --- TABLETS (Até 1024px) --- */
-/* Foco: Mudar para layout vertical (coluna) e centralizar textos */
+/* --- TABLETS (1024px) --- */
 @media (max-width: 1024px) {
   .home-page-intro {
-    flex-direction: column-reverse; /* Foto em cima, texto embaixo */
+    flex-direction: column-reverse;
     text-align: center;
-    padding-top: 140px;
+    gap: 30px;
+    padding: 140px 20px 60px;
   }
 
   .home-page-intro h1 {
-    font-size: 38px !important;
+    font-size: 48px;
   }
 
-  .home-page-intro figure {
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    z-index: 1000;
-  }
-
-  .container-about, .home-page-skills {
+  .container-about {
     flex-direction: column;
+    gap: 40px;
     text-align: center;
   }
 
   .about-text p {
-    margin: 0 0 1.5rem 0; /* Remove as margens laterais que você usou no desktop */
-  }
-}
-
-/* --- CELULARES (Até 768px) --- */
-/* Foco: Menu hamburguer, botões ocupando 100% e carrossel de 1 card */
-@media (max-width: 768px) {
-  .menu-mobile-btn {
-    display: block; /* Ativa o botão do menu */
+    margin: 0 0 1.5rem 0;
   }
 
   .container-skills {
-    text-align: center; /* Centraliza o H2 e o P */
-    margin-left: 0; /* Remove a margem que você usa no desktop */
+    margin-left: 0;
+  }
+
+  .vector-global {
+    width: 180px;
+    opacity: 0.2; /* Suaviza vetores no tablet */
+  }
+}
+
+/* --- CELULARES (768px) --- */
+@media (max-width: 768px) {
+  /* Header Harmonizado */
+  header {
+    height: 60px;
+  }
+
+  .navegacao-principal {
     width: 100%;
-  }
-
-  .menu-de-navegacao {
-    position: fixed; /* Transforma o menu em uma lateral que "sai" da direita */
-    right: -100%; /* Escondido fora da tela */
-    transition: 0.4s ease-in-out;
-  }
-
-  .skill-item {
+    padding: 0 20px;
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-portfolio {
+    font-size: 20px;
+    order: 1; /* Logo na esquerda */
+  }
+
+  .menu-mobile-btn {
+    display: block;
+    order: 2; /* Hambúrguer na direita */
+  }
+
+  /* Menu Lateral (Drawer) */
+  .menu-de-navegacao {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba(13, 15, 36, 0.98);
+    backdrop-filter: blur(15px);
     flex-direction: column;
-    align-items: center; /* Alinha a label e a barra no centro horizontal */
-    width: 100%;
-  }
-
-  .skill-item label {
-    text-align: center;
-    margin-bottom: 8px;
-  }
-
-  .progress-wrapper {
-    justify-content: center; /* Centraliza a barra e o número */
-    width: 100%;
-    max-width: 400px; /* Evita que a barra fique gigante em tablets */
-    margin: 0 auto;
-  }
-
-  progress {
-    width: 80%; /* Ajusta o tamanho da barra no celular para não tocar as bordas */
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    transition: 0.4s ease-in-out;
+    z-index: 1000;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   }
 
   .menu-de-navegacao.active {
-    right: 0; /* Aparece quando clicado */
+    right: 0;
   }
 
-  .projects-card {
-    flex: 0 0 100%; /* No celular, cada card ocupa a largura toda da tela */
+  #theme-toggle {
+    display: none;
+  } /* Limpa o header mobile */
+
+  /* Intro e Seções */
+  .home-page-intro h1 {
+    font-size: 40px;
+  }
+  .home-page-intro figure {
+    width: 250px;
+    height: 250px;
   }
 
-  .projects-carousel-button {
-    background-color: rgba(13, 15, 36, 0.9); /* Melhora visibilidade das setas */
+  .intro-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-primary-intro,
+  .button-secondary-intro {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Projetos - Modo 1 Card por vez */
+  /* --- CELULARES (768px) --- */
+  @media (max-width: 768px) {
+    /* Adiciona espaço nas laterais para as setas não ficarem em cima do card */
+    .projects-container {
+      padding: 0 45px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .projects-grid {
+      gap: 15px; /* Pequeno espaço entre os cards invisíveis */
+      overflow-x: hidden;
+    }
+
+    .projects-card {
+      /* Ajusta o card para ser um pouco menor que a largura total visível */
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    /* Posicionamento fixo das setas nas extremidades do padding */
+    .projects-carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 20;
+      background-color: rgba(
+        13,
+        15,
+        36,
+        0.8
+      ); /* Fundo semi-transparente para destaque */
+    }
+
+    .projects-carousel-button.left {
+      left: 5px;
+    }
+
+    .projects-carousel-button.right {
+      right: 5px;
+    }
+  }
+
+  /* Experience, Skills e Contact */
+  .experience-education-wrapper,
+  .contact-wrapper,
+  .home-page-skills {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .contacts-info,
+  .contact-form-container {
+    width: 100%;
+  }
+
+  /* Vetores Mobile */
+  .vector-left {
+    display: none;
+  }
+  .vector-right {
+    top: 10%;
+    right: -60px;
+    width: 120px;
+  }
+}
+
+/* --- CELULARES PEQUENOS (480px) --- */
+@media (max-width: 480px) {
+  .home-page-intro h1 {
+    font-size: 32px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vector-global {
+    display: none;
+  } /* Remove vetores para limpar a tela pequena */
+}
+
+@media (max-width: 768px) {
+  /* ... outros estilos mobile ... */
+
+  .skills-grid {
+    grid-template-columns: repeat(
+      4,
+      1fr
+    ); /* Aumenta para 4 colunas para os ícones ficarem menores */
+    gap: 12px; /* Reduz o espaçamento entre os boxes */
+  }
+
+  .tech-box {
+    border-radius: 12px; /* Arredondamento menor para combinar com o tamanho */
+    padding: 10px;
+  }
+
+  .tech-box img {
+    max-width: 35px; /* Diminui o ícone interno (era 50px) */
+    max-height: 35px;
+  }
+}
+
+/* Para celulares muito pequenos (480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr); /* Mantém 4 colunas */
+    gap: 8px;
+  }
+
+  .tech-box img {
+    max-width: 28px; /* Ícones ainda menores para telas minúsculas */
+    max-height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    height: 60px;
+  }
+  main {
+    margin-top: 20px;
   }
 }
