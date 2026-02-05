@@ -643,7 +643,7 @@ progress::-webkit-progress-value {
 .projects-links a {
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   transition: 0.3 ease;
 }
 
@@ -652,7 +652,7 @@ progress::-webkit-progress-value {
 }
 
 .link-code {
-  color: #bf0c6d;
+  color: #ff0c92;
 }
 
 .link-code:hover {
